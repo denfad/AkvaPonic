@@ -17,6 +17,7 @@
         android:textColor="@color/colorPrimary"
         android:background="@drawable/rectangle_up"
         android:textStyle="bold"
+        android:elevation="4dp"
         android:gravity="center"/>
 
     <FrameLayout
@@ -31,7 +32,7 @@
         android:layout_height="55dp"
         android:layout_gravity="bottom"
         android:background="@drawable/rectangle_bottom"
-        android:elevation="2dp"
+        android:elevation="4dp"
         app:itemHorizontalTranslationEnabled="false"
         app:itemIconSize="50dp"
         app:itemIconTint="@color/colorAccent"
