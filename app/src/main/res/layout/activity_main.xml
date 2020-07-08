@@ -35,7 +35,7 @@
         android:elevation="4dp"
         app:itemHorizontalTranslationEnabled="false"
         app:itemIconSize="50dp"
-        app:itemIconTint="@color/colorAccent"
+        app:itemIconTint="@drawable/bottom_navigation_item_colors"
         app:itemRippleColor="@color/colorPrimary"
         app:itemTextColor="#00DCDCDD"
         app:labelVisibilityMode="labeled"
