@@ -8,18 +8,6 @@
     tools:context=".MainActivity"
     android:background="@color/backgroundColor">
 
-    <TextView
-        android:id="@+id/up_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Рыбы"
-        android:textSize="39sp"
-        android:textColor="@color/colorPrimary"
-        android:background="@drawable/rectangle_up"
-        android:textStyle="bold"
-        android:elevation="4dp"
-        android:gravity="center"/>
-
     <FrameLayout
         android:id="@+id/fl_content"
         android:layout_width="match_parent"

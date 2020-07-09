@@ -5,18 +5,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class PlantFragment extends Fragment {
 
-    private String[] names = {"Базилик","Кресс-салат","Мята","Базилик","Базилик","Кресс-салат","Мята","Мята","Базилик","Мята","Кресс-салат"};
-    private int[] age = {1,1,1,2,3,3,3,3,4,4,4,5,5,6,7};
+    private Repository repository = Repository.getInstance();
+
     public PlantFragment(){}
 
     public static PlantFragment newInstance(){
@@ -32,6 +37,13 @@ public class PlantFragment extends Fragment {
         PlantAdapter plantAdapter = new PlantAdapter(getContext());
         list.setAdapter(plantAdapter);
 
+        FloatingActionButton add = rootView.findViewById(R.id.add_plant);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(PlantProfileFragment.newInstance(null));
+            }
+        });
         return rootView;
     }
 
@@ -51,24 +63,39 @@ public class PlantFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.ageView.setText("До зрелости "+age[position]+" дня(ей)");
-            holder.nameView.setText(names[position]);
+        public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+            holder.ageView.setText("До зрелости "+repository.getPlant(position).getStay()+" дня(ей)");
+            holder.nameView.setText(repository.getPlant(position).getName());
+            holder.card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    loadFragment(PlantProfileFragment.newInstance(repository.getPlant(position)));
+                }
+            });
         }
 
         @Override
         public int getItemCount() {
-            return names.length;
+            return repository.getSizePlants();
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
             public final TextView nameView, ageView;
+            public final CardView card;
             ViewHolder(View view){
                 super(view);
                 nameView = (TextView) view.findViewById(R.id.leaf_name);
                 ageView = (TextView) view.findViewById(R.id.leaf_age);
+                card = view.findViewById(R.id.plant_card);
             }
         }
+    }
+
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ft.replace(R.id.fl_content, fragment);
+        ft.commit();
     }
 }

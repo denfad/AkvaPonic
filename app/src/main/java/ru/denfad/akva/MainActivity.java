@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView title = findViewById(R.id.up_text);
         bottomNavigationView = findViewById(R.id.navigation);
         loadFragment(FishFragment.newInstance());
 
@@ -29,16 +28,13 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.fish_menu:
                         loadFragment(FishFragment.newInstance());
-                        title.setText("Рыбы");
                         return true;
 
                     case R.id.temperature_menu:
                         loadFragment(TemperatureFragment.newInstance());
-                        title.setText("Вода");
                         return true;
                     case R.id.leaf_menu:
                         loadFragment(PlantFragment.newInstance());
-                        title.setText("Растения");
                         return true;
                 }
                 return false;

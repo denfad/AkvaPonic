@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_icon_27"
+        android:layout_marginTop="40dp"
+        android:elevation="4dp"/>
+
+    <TextView
+        android:id="@+id/text_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bio Future"
+        android:textColor="#FFFFFF"
+        android:textSize="61sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_below="@+id/icon"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aquaponic system"
+        android:textColor="#FFFFFF"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_below="@id/text_label"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_text"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="made by:"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/bottom_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="PROblemno"
+        android:layout_marginBottom="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
