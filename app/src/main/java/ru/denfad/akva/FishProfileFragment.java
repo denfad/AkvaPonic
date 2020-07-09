@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,13 +21,15 @@ public class FishProfileFragment extends Fragment {
 
     private  Fish fish;
     private Repository repository = Repository.getInstance();
+    private int img;
 
-    public FishProfileFragment(Fish fish){
+    public FishProfileFragment(Fish fish,int img){
+        this.img = img;
         this.fish = fish;
     }
 
-    public static FishProfileFragment newInstance(Fish fish){
-        return new FishProfileFragment(fish);
+    public static FishProfileFragment newInstance(Fish fish, int img){
+        return new FishProfileFragment(fish,img);
     }
 
     @Nullable
@@ -37,7 +40,10 @@ public class FishProfileFragment extends Fragment {
         final EditText date = rootView.findViewById(R.id.fish_date);
         final EditText stay = rootView.findViewById(R.id.fish_stay);
         final EditText about = rootView.findViewById(R.id.fish_about);
+        final ImageView image = rootView.findViewById(R.id.profile_fish_img);
         final ImageButton back = rootView.findViewById(R.id.back);
+
+        image.setImageResource(img);
 
         if(fish!=null){
             name.setText(fish.getName());

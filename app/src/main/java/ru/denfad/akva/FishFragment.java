@@ -45,7 +45,7 @@ public class FishFragment extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(FishProfileFragment.newInstance(null));
+                loadFragment(FishProfileFragment.newInstance(null,R.drawable.ic_fish));
             }
         });
 
@@ -68,15 +68,16 @@ public class FishFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
             final Fish fish = repository.getFish(position);
-            holder.fishImg.setImageResource(fishType ? R.drawable.ic_fish : R.drawable.ic_fish_red);
+            final int img = fishType ? R.drawable.ic_fish : R.drawable.ic_fish_red;
+            holder.fishImg.setImageResource(img);
             holder.ageView.setText("До зрелости "+fish.getStay()+" недели(я)");
             holder.nameView.setText(fish.getName());
             holder.card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    loadFragment(FishProfileFragment.newInstance(fish));
+                    loadFragment(FishProfileFragment.newInstance(fish,img));
                 }
             });
             if(position%2 == 0) fishType = !fishType;

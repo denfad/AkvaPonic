@@ -65,7 +65,7 @@
                         android:layout_margin="20dp"/>
 
                     <TextView
-                        android:id="@+id/fish_name"
+                        android:id="@+id/ph"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -117,6 +117,7 @@
                         android:layout_margin="20dp"/>
 
                     <TextView
+                        android:id="@+id/temperature"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
