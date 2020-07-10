@@ -62,8 +62,10 @@ public class TemperatureFragment extends Fragment {
                     .enqueue(new Callback<Data>() {
                         @Override
                         public void onResponse(Call<Data> call, Response<Data> response) {
-                            ph.setText("Показатель PH: "+response.body().getPh());
-                            temperature.setText("Температура: "+response.body().getTemperature()+"°");
+                            if(response.body()!=null){
+                                ph.setText("Показатель PH: "+response.body().getPh());
+                                temperature.setText("Температура: "+response.body().getTemperature()+"°");
+                            }
                         }
 
                         @Override

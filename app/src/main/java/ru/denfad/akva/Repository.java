@@ -15,7 +15,12 @@ public class Repository {
 
     private Repository(){
         fish = new ArrayList<>();
+        fish.add(new Fish("Андрей","25.04",4,"Пестрый"));
+        fish.add(new Fish("Катя","12.04",2,"Игривая"));
+        fish.add(new Fish("Вова","15.04",2,"Ленивый"));
         plants = new ArrayList<>();
+        plants.add(new Plant("Мята","09.03",5,"отсутствуют"));
+        plants.add(new Plant("Базилик","18.04",13,"отсутствуют"));
     }
 
     public static Repository getInstance(){
