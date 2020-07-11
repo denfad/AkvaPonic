@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkService {
     private static NetworkService mInstance;
-    private static final String BASE_URL = "http://192.168.1.3:8080";
+    private static final String BASE_URL = "https://akva-server.herokuapp.com";
     private Retrofit mRetrofit;
 
     private NetworkService() {
